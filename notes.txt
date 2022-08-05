@@ -1,0 +1,6 @@
+need to do knex migrate(file structure) after settling on an sql structure-DONE
+need to make routes for the different tables(and test them in insomnia)
+
+
+note: need to add image to each food on the database
+note 2: need to decide wheter to make all routes then all controllers or make them in pairs
