@@ -1,9 +1,10 @@
-require('dotenv/config')
-const database = require('./database/sqlite')
-const express = require('express')
-const routes = require('./routes')
-const AppError = require('./utils/AppError')
-const knex = require('knex')
+require('dotenv/config');
+require('express-async-errors');
+const database = require('./database/sqlite');
+const express = require('express');
+const routes = require('./routes');
+const AppError = require('./utils/AppError');
+const knex = require('knex');
 
 const app = express()
 app.use(express.json())
