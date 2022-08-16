@@ -1,8 +1,11 @@
-const {Router, application} = require('express')
+const {Router} = require('express')
 
 // here we import the routes from other files witihn this same folder
 const userRoutes = require('./user.routes')
 const sessionsRoutes = require('./sessions.routes')
+const foodsRoutes = require('./foods.routes')
+const adminDishRoutes = require('./admindish.routes')
+const ordersRoutes = require('./orders.routes')
 
 const routes = Router()
 
@@ -11,5 +14,8 @@ const routes = Router()
 
 routes.use("/user", userRoutes)
 routes.use("/sessions",sessionsRoutes)
+routes.use("/foods",foodsRoutes)
+routes.use("/admindish",adminDishRoutes)
+routes.use("/orders",ordersRoutes)
 
 module.exports = routes;

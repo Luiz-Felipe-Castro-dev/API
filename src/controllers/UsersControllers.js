@@ -22,9 +22,43 @@ class UsersController{
     return response.status(201).json(userData)
   }
   async update(request,response){
-    const {name,email,password} = request.body;
-    const user = await knex("users").where({})
+    const {name,email,password,old_password} = request.body;
+
+    const user_id = request.user.id
+    const user = await knex("users").where('id',user_id).first();
+
+    if (!user){
+      throw new AppError('usuário não encontrado')
+    }
+    
+    const userWithUpdatedEmail = await knex("users").where({email}).first()
+
+    if(userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id){
+      throw new AppError('email ja esta em uso')
+    }
+
+    user.name = name ?? user.name
+    user.email = email ?? user.email
+
+    if (password && !old_password){
+      throw new AppError("Você precisa informar a senha antiga")
+    }
+    if (password && old_password){
+      const checkIfPasswordsMatch = user.password == old_password
+      if(!checkIfPasswordsMatch){
+        throw new AppError("As senhas não conferem")
+      }
+      user.password = password
+    }
+    await knex("users").where('id',user.id).update({
+      name:user.name,
+      email:user.email,
+      password:user.password,
+      updated_at: knex.fn.now()
+    })
+    return response.status(201).json(user)
   }
+
 }
 
 module.exports = UsersController

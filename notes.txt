@@ -1,6 +1,24 @@
 need to do knex migrate(file structure) after settling on an sql structure-DONE
-need to make routes for the different tables(and test them in insomnia)
+need to make sessions routes and controllers - DONE 
+need to make foods routes and controllers - DONE
+need to make admindish routes and controllers - DONE
+need to make orders routes and controllers - DONE
+need to make adminorder routes and controllers
 
 
 note: need to add image to each food on the database
-note 2: need to decide wheter to make all routes then all controllers or make them in pairs
+note 2: need to decide wheter to make all routes then all controllers or make them in pairs(making them in pairs for quicker testing was decided)
+
+note 3: need middleware in order to store user id and use that on most requests 
+that need to be authenticated. In fact , lets create a middleware in order to
+ autorize admins to do admin things(was accomplished).
+
+ note 4: need to clean up json responses(too much unnecessary debbuging)
+
+ note 5: need to add error handling
+
+ note 6: need to add order status
+
+ note 7: when returning a row after an update the fn now function doesn't return the updated time.
+
+ note 8 : need to add description to orders
