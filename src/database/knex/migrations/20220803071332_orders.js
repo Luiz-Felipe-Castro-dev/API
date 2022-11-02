@@ -4,6 +4,7 @@ exports.up = knex => knex.schema.createTable("orders", table => {
   table.text("foods");
   table.integer("total_price");
   table.integer("client_id").references("id").inTable("users");
+  table.text("order_status").default('Pendente');
 
   table.timestamp("created_at").default(knex.fn.now());
   table.timestamp("updated_at").default(knex.fn.now());

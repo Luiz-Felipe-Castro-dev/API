@@ -6,6 +6,8 @@ const sessionsRoutes = require('./sessions.routes')
 const foodsRoutes = require('./foods.routes')
 const adminDishRoutes = require('./admindish.routes')
 const ordersRoutes = require('./orders.routes')
+const adminOrdersRoutes = require('./adminorders.routes')
+const ingredientsRoutes = require('./ingredients.routes')
 
 const routes = Router()
 
@@ -17,5 +19,7 @@ routes.use("/sessions",sessionsRoutes)
 routes.use("/foods",foodsRoutes)
 routes.use("/admindish",adminDishRoutes)
 routes.use("/orders",ordersRoutes)
+routes.use("/adminorders",adminOrdersRoutes)
+routes.use("/ingredients",ingredientsRoutes)
 
 module.exports = routes;
